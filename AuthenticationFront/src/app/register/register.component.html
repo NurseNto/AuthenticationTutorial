@@ -1,0 +1,49 @@
+
+<form [formGroup]="myForm" (ngSubmit)="onRegister(myForm)">
+    <div>
+      <label>
+        UserName:
+        <input formControlName="username" placeholder="Your name">
+      </label>
+      <div *ngIf="myForm.get('username').invalid && (myForm.get('username').dirty || myForm.get('username').touched)">
+        Please provide a name.
+      </div>
+    </div>
+    <div>
+      <label>
+        Email:
+        <input formControlName="email" placeholder="Your email">
+      </label>
+      <div *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">
+        Please provide a valid email address.
+      </div>
+    </div>
+    <div>
+      <label>
+        Phone:
+        <input formControlName="phone" placeholder="Your phone number">
+      </label>
+      <div *ngIf="myForm.get('phone').invalid && (myForm.get('phone').dirty || myForm.get('phone').touched)">
+        Messages must be at least 15 characters long.
+      </div>
+    </div>
+    <div>
+        <label>
+          Password:
+          <input formControlName="password" placeholder="Password">
+        </label>
+        <div *ngIf="myForm.get('password').invalid && (myForm.get('password').dirty || myForm.get('password').touched)">
+          Please provide a valid password.
+        </div>
+      </div>
+      <div>
+        <label>
+          Confirm Password:
+          <input formControlName="confirmpassword" placeholder="Confirm password">
+        </label>
+        <div *ngIf="myForm.get('confirmpassword').invalid && (myForm.get('confirmpassword').dirty || myForm.get('confirmpassword').touched)">
+          Please provide a valid password.
+        </div>
+      </div>
+    <button type="submit" [disabled]="myForm.invalid">Register</button>
+  </form>
